@@ -1,5 +1,8 @@
 const BASE_URL = 'https://api.github.com';
 
+
+const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
+
 export const PER_PAGE_USERS = 20;
 export const SEARCH_RESULTS_CAP = 1000; // github search hard limit
 const PER_PAGE_REPOS = 100;
@@ -12,6 +15,7 @@ async function githubFetch(endpoint, signal) {
       headers: {
         Accept: 'application/vnd.github+json',
         'X-GitHub-Api-Version': '2022-11-28',
+        ...(TOKEN && { Authorization: `Bearer ${TOKEN}` }),
       },
     });
   } catch (err) {
@@ -20,6 +24,9 @@ async function githubFetch(endpoint, signal) {
   }
 
   if (!response.ok) {
+    if (response.status === 401) {
+      throw new Error('Invalid GitHub token. Check VITE_GITHUB_TOKEN in .env.');
+    }
     if (response.status === 403) {
       throw new Error('API rate limit exceeded. Try again in a minute.');
     }
@@ -65,7 +72,7 @@ export async function fetchUserRepos(username, signal) {
   );
 }
 
-/** 
+/**
  Fetch a user's extended public profile (bio, followers, etc.).
 @param {string} username
 @param {AbortSignal} [signal]
