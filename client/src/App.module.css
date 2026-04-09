@@ -1,0 +1,55 @@
+.app {
+  /* 100dvh mobile chrome ke saath jitter nahi karta */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  background-image: var(--gradient-blush), var(--gradient-blush-left);
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+}
+
+.skipLink {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: 200;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: top var(--transition-base);
+}
+
+.skipLink:focus {
+  top: var(--space-4);
+  outline: none;
+  box-shadow: var(--shadow-accent-glow), var(--shadow-lg);
+}
+
+/* top padding ≈ 80px — fixed navbar ke neeche jagah chahiye */
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-20) var(--space-5) var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .main {
+    padding: var(--space-20) var(--space-8) var(--space-20);
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+  }
+}
