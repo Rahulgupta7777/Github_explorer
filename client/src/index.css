@@ -1,0 +1,161 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root, [data-theme="light"] {
+  --color-bg:              #F8F8FA;
+  --color-bg-elevated:     #FFFFFF;
+  --color-bg-blush:        rgba(124, 58, 237, 0.04);
+
+  --color-surface:         #F1F0F5;
+  --color-surface-hover:   #E8E6EF;
+
+  --color-text-primary:    #1E293B;
+  --color-text-secondary:  #64748B;
+  /* tha #94A3B8, WCAG AA fail karta tha — bumped to slate-500 */
+  --color-text-muted:      #64748B;
+  --color-text-on-accent:  #FFFFFF;
+
+  --color-accent:          #7C3AED;
+  --color-accent-hover:    #6D28D9;
+  --color-accent-light:    #EDE9FE;
+  --color-accent-subtle:   rgba(124, 58, 237, 0.08);
+  --color-accent-text:     #7C3AED;
+
+  --color-border:          #E2E0EA;
+  --color-border-hover:    #C4BFD6;
+  --color-error:           #DC2626;
+  --color-error-bg:        #FEF2F2;
+  --color-star:            #F59E0B;
+  --color-success:         #059669;
+  --color-fork:            #64748B;
+
+  --color-navbar-bg:       #1E293B;
+  --color-navbar-text:     #F1F5F9;
+  --color-navbar-accent:   #7C3AED;
+
+  --shadow-xs:             0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-sm:             0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md:             0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-lg:             0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-hover:          0 8px 25px rgba(124, 58, 237, 0.10);
+  --shadow-navbar:         0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-accent-glow:    0 0 0 3px rgba(124, 58, 237, 0.15);
+
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  --font-family:           'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:             'JetBrains Mono', 'Fira Code', monospace;
+
+  --font-size-xs:          0.75rem;
+  --font-size-sm:          0.875rem;
+  --font-size-base:        1rem;
+  --font-size-lg:          1.125rem;
+  --font-size-xl:          1.25rem;
+  --font-size-2xl:         1.5rem;
+  --font-size-3xl:         clamp(1.75rem, 3vw, 2.25rem);
+  --font-size-display:     clamp(2.25rem, 5vw, 3rem);
+
+  --radius-sm:             8px;
+  --radius-md:             12px;
+  --radius-lg:             16px;
+  --radius-xl:             20px;
+  --radius-full:           9999px;
+
+  --transition-fast:       120ms ease;
+  --transition-base:       200ms ease;
+  --transition-slow:       350ms ease;
+
+  --gradient-blush:        radial-gradient(ellipse at top right, rgba(124, 58, 237, 0.06) 0%, transparent 60%);
+  --gradient-blush-left:   radial-gradient(ellipse at bottom left, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+  --gradient-accent-btn:   linear-gradient(135deg, #7C3AED 0%, #9333EA 100%);
+}
+
+[data-theme="dark"] {
+  --color-bg:              #0B0F1A;
+  --color-bg-elevated:     #151B2B;
+  --color-bg-blush:        rgba(124, 58, 237, 0.06);
+
+  --color-surface:         #1C2333;
+  --color-surface-hover:   #252E40;
+
+  --color-text-primary:    #F1F5F9;
+  --color-text-secondary:  #94A3B8;
+  --color-text-muted:      #64748B;
+  --color-text-on-accent:  #FFFFFF;
+
+  --color-accent:          #8B5CF6;
+  --color-accent-hover:    #A78BFA;
+  --color-accent-light:    rgba(139, 92, 246, 0.15);
+  --color-accent-subtle:   rgba(139, 92, 246, 0.10);
+  --color-accent-text:     #A78BFA;
+
+  --color-border:          #1E293B;
+  --color-border-hover:    #334155;
+  --color-error:           #F87171;
+  --color-error-bg:        rgba(248, 113, 113, 0.08);
+
+  --color-navbar-bg:       #111827;
+  --color-navbar-text:     #F1F5F9;
+  --color-navbar-accent:   #8B5CF6;
+
+  --shadow-sm:             0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md:             0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-lg:             0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-hover:          0 8px 25px rgba(139, 92, 246, 0.15);
+  --shadow-navbar:         0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-accent-glow:    0 0 0 3px rgba(139, 92, 246, 0.25);
+
+  --gradient-blush:        radial-gradient(ellipse at top right, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+  --gradient-blush-left:   radial-gradient(ellipse at bottom left, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+  --gradient-accent-btn:   linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-accent-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+::selection {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+/* vestibular sensitivity wale users ke liye — sab animations off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
