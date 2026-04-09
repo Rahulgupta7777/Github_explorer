@@ -1,0 +1,33 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-navbar-text);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* white overlay — design system mein navbar hover ke liye token nahi hai */
+.toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.toggle:active {
+  transform: scale(0.95);
+}
+
+.toggle:focus-visible {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-accent-glow);
+}
