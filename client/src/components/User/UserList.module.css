@@ -1,0 +1,9 @@
+/* min(280px, 100%) — single column 320px viewport pe overflow nahi hoga */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-4);
+}
