@@ -14,11 +14,7 @@
       (function () {
         try {
           var stored = localStorage.getItem('gh-explorer:theme');
-          var theme = stored
-            ? JSON.parse(stored)
-            : window.matchMedia('(prefers-color-scheme: dark)').matches
-              ? 'dark'
-              : 'light';
+          var theme = stored ? JSON.parse(stored) : 'light';
           document.documentElement.setAttribute('data-theme', theme);
         } catch (e) {}
       })();

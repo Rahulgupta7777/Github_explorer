@@ -3,16 +3,8 @@ import { useLocalStorage } from '../hooks/useLocalStorage.js';
 
 const ThemeContext = createContext(null);
 
-function getSystemTheme() {
-  if (typeof window === 'undefined' || !window.matchMedia) return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-
 export function ThemeProvider({ children }) {
-  // function form so matchMedia sirf first mount pe chale
-  const [theme, setTheme] = useLocalStorage('gh-explorer:theme', getSystemTheme);
+  const [theme, setTheme] = useLocalStorage('gh-explorer:theme', 'light');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
